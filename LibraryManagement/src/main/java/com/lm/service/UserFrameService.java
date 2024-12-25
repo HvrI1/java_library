@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 public class UserFrameService extends JFrame {
-
+    JTable table;
 
     public void init(){
         //生成容器
@@ -31,6 +31,56 @@ public class UserFrameService extends JFrame {
         selectBtn.setBounds(430,10,75,50);
         selectBtn.setFont(new Font("宋体",Font.BOLD,18));
         contentPane.add(selectBtn);
+        selectBtn.addActionListener(e->{
+            //获取文本框的内容
+            String text = textField.getText();
+
+            //查询指定name的书籍
+            Book book = new SelectMapper().selectByNameBook(text);
+
+            if (!text.equals("")&&(text.equals(book.getName()))){
+                //删除之前查询的全部数据
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                for(int i=0;;i++){
+                    //删除每一行数据
+                    model.removeRow(0);
+                    if(table.getRowCount()==0)break;
+                }
+                //将查询到的数据添加到表格中
+                Vector coVector = new Vector();
+                Vector dataVector = new Vector();
+                DefaultTableModel tableModel;
+                JScrollPane pane;
+                coVector.add("name");
+                coVector.add("price");
+                coVector.add("type");
+                coVector.add("status");
+                Vector data = new Vector();
+                data.add(book.getName());
+                data.add(book.getPrice());
+                data.add(book.getType());
+                data.add(book.getStatus());
+                dataVector.add(data);
+                tableModel = new DefaultTableModel(dataVector,coVector);
+                table.setModel(tableModel);
+                contentPane.add(table);
+            }else {
+                JOptionPane.showMessageDialog(null,"请输入正确的书名","错误",JOptionPane.ERROR_MESSAGE);
+            }
+
+
+
+
+
+
+
+
+
+
+        });
+
+
+
 
 
 
@@ -39,6 +89,13 @@ public class UserFrameService extends JFrame {
         borrowBtn.setBounds(515,10,75,50);
         borrowBtn.setFont(new Font("宋体",Font.BOLD,18));
         contentPane.add(borrowBtn);
+        borrowBtn.addActionListener(e->{
+            System.out.println(111111);
+            table = new InitDateService().init(contentPane);
+            contentPane.add(table);
+        });
+
+
 
         //归还按钮
         JButton backBtn = new JButton("归还");
@@ -52,60 +109,8 @@ public class UserFrameService extends JFrame {
         quitBtn.setFont(new Font("宋体",Font.BOLD,18));
         contentPane.add(quitBtn);
         quitBtn.addActionListener(e -> {this.dispose();new InitService().init();});
-
-        //表格框
-        //表格的列名
-        JTextField jTextField_name = new JTextField("书名");
-        jTextField_name.setBounds(10,80,190,25);
-        contentPane.add(jTextField_name);
-        JTextField jTextField_price = new JTextField("价格");
-        jTextField_price.setBounds(200,80,190,25);
-        contentPane.add(jTextField_price);
-        JTextField jTextField_type = new JTextField("类型");
-        jTextField_type.setBounds(390,80,190,25);
-        contentPane.add(jTextField_type);
-        JTextField jTextField_status = new JTextField("状态");
-        jTextField_status.setBounds(580,80,190,25);
-        contentPane.add(jTextField_status);
-
-
-        Vector coVector = new Vector();
-        Vector dataVector = new Vector();
-        DefaultTableModel tableModel;
-        JScrollPane pane;
-
-        coVector.add("name");
-        coVector.add("price");
-        coVector.add("type");
-        coVector.add("status");
-
-
-        SelectMapper selectMapper = new SelectMapper();
-        ArrayList<Book> books = selectMapper.selectAllBook();
-        for(Book book : books){
-            Vector data = new Vector();
-            data.add(book.getName());
-            data.add(book.getPrice());
-            data.add(book.getType());
-            data.add(book.getStatus());
-            dataVector.add(data);
-            System.out.println(dataVector);
-        }
-        tableModel = new DefaultTableModel(dataVector,coVector);
-        JTable table = new JTable(tableModel);
-        table.setRowHeight(25);
-        table.setBounds(10,100,760,600);
+        table = new InitDateService().init(contentPane);
         contentPane.add(table);
-
-
-
-
-
-
-
-
-
-
 
 
         //JF窗体的初始化一定要放在其他组件最后，否则组件会显示不全

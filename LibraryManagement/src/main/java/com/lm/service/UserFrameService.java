@@ -34,48 +34,56 @@ public class UserFrameService extends JFrame {
         selectBtn.addActionListener(e->{
             //获取文本框的内容
             String text = textField.getText();
+            Book book = null;
 
             //查询指定name的书籍
-            Book book = new SelectMapper().selectByNameBook(text);
+            if(!text.equals("")) book = new SelectMapper().selectByNameBook(text);
 
-            if (!text.equals("")&&(text.equals(book.getName()))){
-                //删除之前查询的全部数据
-                DefaultTableModel model = (DefaultTableModel) table.getModel();
-                for(int i=0;;i++){
-                    //删除每一行数据
-                    model.removeRow(0);
-                    if(table.getRowCount()==0)break;
+                if (!text.equals("") && (text.equals(book.getName()))) {
+
+                    //删除之前查询的全部数据
+                    DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    for (int i = 0; ; i++) {
+                        //删除每一行数据
+                        model.removeRow(0);
+                        if (table.getRowCount() == 0) break;
+                    }
+                    //将查询到的数据添加到表格中
+                    Vector coVector = new Vector();
+                    Vector dataVector = new Vector();
+                    DefaultTableModel tableModel;
+                    JScrollPane pane;
+                    coVector.add("name");
+                    coVector.add("price");
+                    coVector.add("type");
+                    coVector.add("status");
+                    Vector data = new Vector();
+                    data.add(book.getName());
+                    data.add(book.getPrice());
+                    data.add(book.getType());
+                    data.add(book.getStatus());
+                    dataVector.add(data);
+                    tableModel = new DefaultTableModel(dataVector, coVector);
+                    table.setModel(tableModel);
+                    contentPane.add(table);
+                } else if (text.equals("")) {
+                    //删除之前查询的全部数据
+                    DefaultTableModel model = (DefaultTableModel) table.getModel();
+                    while (true) {
+                        //删除每一行数据
+                        model.removeRow(0);
+                        System.out.println(1);
+                        if (table.getRowCount() == 0) break;
+                        System.out.println(2);
+                    }
+                    System.out.println(3);
+                    table = new InitDateService().init(contentPane);
+                    System.out.println(4);
+                    contentPane.add(table);
+                    System.out.println(5);
+                } else {
+                    JOptionPane.showMessageDialog(null, "请输入正确的书名", "错误", JOptionPane.ERROR_MESSAGE);
                 }
-                //将查询到的数据添加到表格中
-                Vector coVector = new Vector();
-                Vector dataVector = new Vector();
-                DefaultTableModel tableModel;
-                JScrollPane pane;
-                coVector.add("name");
-                coVector.add("price");
-                coVector.add("type");
-                coVector.add("status");
-                Vector data = new Vector();
-                data.add(book.getName());
-                data.add(book.getPrice());
-                data.add(book.getType());
-                data.add(book.getStatus());
-                dataVector.add(data);
-                tableModel = new DefaultTableModel(dataVector,coVector);
-                table.setModel(tableModel);
-                contentPane.add(table);
-            }else {
-                JOptionPane.showMessageDialog(null,"请输入正确的书名","错误",JOptionPane.ERROR_MESSAGE);
-            }
-
-
-
-
-
-
-
-
-
 
         });
 

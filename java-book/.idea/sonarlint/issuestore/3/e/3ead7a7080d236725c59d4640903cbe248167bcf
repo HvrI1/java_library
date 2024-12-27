@@ -1,0 +1,13 @@
+
+J
+java:S16046"(Make this anonymous inner class a lambda(ÍÍ÷êøÿÿÿÿ8Ã…Ó½0
+D
+java:S1604J"(Make this anonymous inner class a lambda(ÄÏ”98Ó…Ó½0
+l	java:S116"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µï®¤8†Ó½0
+m	java:S116"QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¦ä”8†Ó½0
+>
+java:S1170"!Make this final field static too.(µï®¤8‚†Ó½0
+>
+java:S1170"!Make this final field static too.(­¦ä”8‚†Ó½0
+K
+java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8Ÿ†Ó½0

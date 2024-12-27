@@ -1,0 +1,15 @@
+
+>
+java:S1604G"(Make this anonymous inner class a lambda(ÙÒí¼
+e	java:S116"PRename this field "WIDTH" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ‘½­
+f	java:S116"QRename this field "HEIGHT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­¦ä”
+7
+java:S1170"!Make this final field static too.(Æ‘½­
+7
+java:S1170"!Make this final field static too.(­¦ä”
+Œ
+java:S1130"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(ûš„Ýüÿÿÿÿ
+P	java:S125"<This block of commented-out lines of code should be removed.(¸‰6
+Q	java:S125"<This block of commented-out lines of code should be removed.(ŸîÑ®
+V	java:S125e"<This block of commented-out lines of code should be removed.(ÓÞàäÿÿÿÿÿ
+V	java:S125g"<This block of commented-out lines of code should be removed.(š§Ò”ýÿÿÿÿ

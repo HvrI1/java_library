@@ -1,0 +1,21 @@
+
+x
+java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "sql".(…ÀÓ8—à”çΩ0
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…¶∏≤8”à”çΩ0
+X	java:S125"<This block of commented-out lines of code should be removed.(©ÕÊ•8ﬂà”çΩ0
+Y
+java:S1854"7Remove this useless assignment to local variable "scp".(∫Ù´Ô˚ˇˇˇˇ8‡à”çΩ0
+Y
+java:S1854"7Remove this useless assignment to local variable "sca".(…ë’»ˇˇˇˇˇ8‡à”çΩ0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(íÇóå8·à”çΩ0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(⁄ßÂ¢˚ˇˇˇˇ8Ïà”çΩ0
+X	java:S125"<This block of commented-out lines of code should be removed.(†˛Úï8Ïà”çΩ0
+J
+java:S1481"(Remove this unused "sca" local variable.(…ë’»ˇˇˇˇˇ8Ìà”çΩ0
+]	java:S125"<This block of commented-out lines of code should be removed.(ÌØÓ⁄ˇˇˇˇˇ8Óà”çΩ0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Æ©ù±ˇˇˇˇˇ8Ôà”çΩ0
+J
+java:S1481"(Remove this unused "scp" local variable.(∫Ù´Ô˚ˇˇˇˇ8à”çΩ0
+]	java:S125"<This block of commented-out lines of code should be removed.(áÌ¥¸ˇˇˇˇ8Òà”çΩ0
+B
+java:S1128"%Remove this unused import 'java.sql'.(¥›Ö≈8Òà”çΩ0

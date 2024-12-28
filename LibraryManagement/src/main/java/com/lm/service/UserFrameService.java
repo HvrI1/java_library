@@ -5,9 +5,7 @@ import com.lm.pojo.Book;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Vector;
 
 public class UserFrameService extends JFrame {
@@ -34,8 +32,9 @@ public class UserFrameService extends JFrame {
         selectBtn.addActionListener(e->{
             //获取文本框的内容
             String text = textField.getText();
-            Book book = null;
-
+            Book book =null;
+//            Book book = null;
+//            if(!text.equals(""))
             //查询指定name的书籍
             if(!text.equals("")) book = new SelectMapper().selectByNameBook(text);
 
@@ -76,6 +75,7 @@ public class UserFrameService extends JFrame {
                         if (table.getRowCount() == 0) break;
                         System.out.println(2);
                     }
+
                     System.out.println(3);
                     table = new InitDateService().init(contentPane);
                     System.out.println(4);
